@@ -1,0 +1,34 @@
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+using namespace std;
+
+void dz1_5()
+{
+    string curtains, lamp, time;
+    cout << "Шторы раздвинуты?" << endl;
+    cin >> curtains;
+    cout << "Лампа горит?" << endl;
+    cin >> lamp;
+    cout << "какое сейчас время суток?" << endl;
+    cin >> time;
+    if (lamp == "да" || (time == "день" && curtains == "да"))
+    {
+        cout << "Да, в комнате светло" << endl;
+    }
+    else 
+    {
+        cout << "Нет, в комнате темно";
+    }
+
+}
+
+int main()
+{
+    setlocale(0, "");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    dz1_5(); 
+
+}

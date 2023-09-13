@@ -1,0 +1,40 @@
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+using namespace std;
+
+void dz2_3()
+{
+    float x, y, b;
+    cout << "Введите X: ";
+    cin >> x;
+    cout << "Введите Y: ";
+    cin >> y;
+    cout << "Введите B: ";
+    cin >> b;
+    if ((b - y > 0) && (b - x > 0))
+    {
+        cout << "z = " << log(b - y) * sqrt(b - x);
+    }
+    else
+    {
+        if (b - y < 0)
+        {
+            cout << "Логарифмируемое выражение: " << b << " - " << y << " меньше или равно нулю";
+        }
+        else
+        {
+            cout << "Подкоренное ыражение: " << b << " - " << " меньше нуля";
+        }
+    }
+}
+
+int main()
+{
+    setlocale(0, "");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    dz2_3(); 
+
+}

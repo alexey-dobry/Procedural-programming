@@ -1,0 +1,37 @@
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+using namespace std;
+
+void dz1_2()
+{
+    float a, b;
+    cout << "Введите A: " << endl;
+    cin >> a;
+    cout << "Введите B: " << endl;
+    cin >> b;
+    if (b == 0)
+    {
+        cout << "a + b = " << a + b << endl;
+        cout << "a - b = " << a - b << endl;
+        cout << "a * b = " << a * b << endl;
+        cout << "Деление на ноль" << endl;
+    }
+    else
+    {
+        cout << "a + b = " << a + b << endl;
+        cout << "a - b = " << a - b << endl;
+        cout << "a * b = " << a * b << endl;
+        cout << "a / b = " << a / b << endl;
+    }
+}
+
+int main()
+{
+    setlocale(0, "");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    dz1_2(); 
+
+}

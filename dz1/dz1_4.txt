@@ -1,0 +1,63 @@
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+using namespace std;
+
+void dz1_4()
+{
+    float a, b, c;
+    float D;
+    cout << "Введите A: ";
+    cin >> a;
+    cout << "Введите B: ";
+    cin >> b;
+    cout << "Введите C: ";
+    cin >> c;
+    cout << "Решение уравнения: " << a << "x^2 + " << b << "x + " << c << " = 0" << endl;
+    D = b*b - (4 * (a * c));
+    if (a == 0)
+    {
+        if (b == 0 && c != 0)
+        {
+            cout << "Решений нет";
+        }
+        else if (b == 0 && c == 0)
+        {
+            cout << "X любое число";
+        }
+        else if (b != 0 && c == 0)
+        {
+            cout << "x = 0";
+        }
+        else
+        {
+            cout << "x = " << -(c / b) << endl;
+        }
+    }
+    else
+    {
+        if (D > 0)
+        {
+            cout << "x1 = " << (-b + sqrt(D)) / (2 * a) << endl;
+            cout << "x2 = " << (-b - sqrt(D)) / (2 * a) << endl;
+        }
+        else if (D == 0)
+        {
+            cout << "x = " << (-b) / (2 * a) << endl;
+        }
+        else
+        {
+            cout << "Уравнение не имеет действитльных корней";
+        }
+    }  
+}
+
+int main()
+{
+    setlocale(0, "");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    dz1_4(); 
+
+}

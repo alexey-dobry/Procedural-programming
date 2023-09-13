@@ -1,0 +1,38 @@
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+using namespace std;
+
+void dz2_2()
+{
+    float a, x;
+    cout << "Введите X: ";
+    cin >> x;
+    cout << "Введите A: ";
+    cin >> a;
+    if (x == 0) {
+        cout << "error";
+    }
+    else if (abs(x) < 1) {
+        cout << "w = " << a * (log(abs(x)));
+    }
+    
+    else {
+        if (a >= x * x) {
+            cout << "w = " << sqrt(a - pow(x,2));
+        }
+        else {
+            cout << "Ошибка";
+        }
+    }
+}
+
+int main()
+{
+    setlocale(0, "");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    dz2_2(); 
+
+}

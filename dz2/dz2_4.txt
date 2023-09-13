@@ -1,0 +1,25 @@
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+using namespace std;
+
+void dz2_4()
+{
+    int N, i;
+    cout << "Введите N: ";
+    cin >> N;
+    for (i = N; i <= N + 10;i++)
+    {
+        cout << i << endl;
+    }
+}
+
+int main()
+{
+    setlocale(0, "");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    dz2_4(); 
+
+}
