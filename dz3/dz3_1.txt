@@ -1,0 +1,32 @@
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+#include <cmath>
+#include <fstream>
+#include <string>
+using namespace std;
+
+void dz3_1() 
+{
+    float S, n, p, m, r;
+    cout << "Введите займ S: ";
+    cin >> S;
+    cout << "Введите количество лет n: ";
+    cin >> n;
+    cout << "Введите процент p: ";
+    cin >> p;
+    r = p / 100.0;
+    if ((12 * (pow(1 + r, n) - 1)) == 0) {
+        cout << "Ошибка";
+    }
+    else {
+        m = S * r * pow(1 + r, n) / (12 * (pow(1 + r, n) - 1));
+        cout << "m = " << m << endl;
+    }
+}
+
+int main()
+{
+   dz3_1();
+   return 0;
+}

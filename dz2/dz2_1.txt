@@ -1,3 +1,5 @@
+#define _USE_MATH_DEFINES // Используется чтобы подключить обозначения для мат. констант(пи, е и т.д).В коде 				     обозначается ка M_PI.Это вроде как легаси еще с C, можно сделать по другому. //
+
 #include <iostream>
 #include <Windows.h>
 #include <math.h>
@@ -5,16 +7,23 @@ using namespace std;
 
 void dz2_1()
 {
-    float R, r, h,pi;
-    pi = 3, 1415;
-    cout << "Радиус нижнего основания: ";
+    float R, r, h, l;
+    cout << "Радиус большего основания: ";
     cin >> R;
-    cout << "Радиус верхнего основания: ";
+    cout << "Радиус меньшего основания: ";
     cin >> r;
     cout << "Высота усеченного конуса: ";
     cin >> h;
-    cout << "V = " << (0,3 * pi * h * (R * 2 + R * r + r * 2)) << endl;
-    cout << "S = " << (pi * (R * 2 + (R + 1) + r * 2)) << endl;
+    if (R == r || r <= 0 || R <= 0 ) { // Проверка, существует ли конус такой усечённый конус вообще
+        cout << "Ошибка";
+    }
+    else {
+        l = sqrt(pow((R - r), 2) + pow(h, 2));
+        cout << "V = " << ((1.0 / 3.0) * M_PI * h * (R * R + R * r + r * r)) << endl;
+        cout << "S = " << (M_PI * (R * R + (R + r) * l + r * r)) << endl;
+        cout << "l = " << l << endl;
+    }
+   
 }
 
 int main()

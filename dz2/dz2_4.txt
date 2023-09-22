@@ -6,11 +6,13 @@ using namespace std;
 void dz2_4()
 {
     int N, i;
+    int p = 1;
     cout << "Введите N: ";
     cin >> N;
     for (i = N; i <= N + 10;i++)
     {
-        cout << i << endl;
+        cout << p << ")" << i << endl;
+        p += 1;
     }
 }
 

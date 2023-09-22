@@ -14,7 +14,7 @@ void dz2_3()
     cin >> b;
     if ((b - y > 0) && (b - x > 0))
     {
-        cout << "z = " << log(b - y) * sqrt(b - x);
+        cout << "z = " << log(b - y) * sqrt(b - x); // Здесь log это натуральный логарифм.
     }
     else
     {
