@@ -1,0 +1,36 @@
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+#include <cmath>
+#include <fstream>
+#include <string>
+using namespace std;
+
+void dz3_5()
+{
+    string str{"AdfdLHUJFHILNGNNIFHGWRMIBJdfgf  dssd dfddf df dsfsfhfvwewrTUPOQVBHZRMTQEVFTGQUOCLLRGMCkkokapsfpalsdkodkgd"};
+    remove_if(str.begin(), str.end(), isspace);
+    int L = str.length();
+    for (int i = 0; i <= L - 1; i++) { 
+        for (int j = i + 1; j <= L; j++) {
+            if (tolower(str[i]) > tolower(str[j])) {
+                char temp = str[i];
+                str[i] = str[j];
+                str[j] = temp;
+            }
+            else if (tolower(str[i]) == tolower(str[j])){
+                if (str[i] > str[j]) {
+                    char temp = str[i];
+                    str[i] = str[j];
+                    str[j] = temp; 
+                }
+            }
+        }
+    }
+    cout << str;
+}
+int main()
+{
+   dz3_1();
+   return 0;
+}
