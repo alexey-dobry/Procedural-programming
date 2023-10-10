@@ -8,18 +8,21 @@ using namespace std;
 
 void dz3_3()
 {
-    ofstream fout;
-    fout.open("C:\\Users\\nehae\\Downloads\\Proc_programming\\dz3\\test.txt");
-    fout << "hello world1984";
-    fout.close();
-    char buff[20];
-    ifstream fin("C:\\Users\\nehae\\Downloads\\Proc_programming\\dz3\\test.txt");
-    fin >> buff;
-    cout << buff;
-    fin.getline(buff, 20);
-    fin.close();
-    cout << buff << endl;
+    string str;
+    fstream file("C:\\Users\\nehae\\Downloads\\Proc_programming\\dz3\\test.txt", fstream::out);
+    file << "slfsm,fsfks[lf \n sl,dlskd[slep[qeplp le \n sldskosokfo'sk f[ks[of \n  bsldkskf";
+    file.close();
 
+    file.open("C:\\Users\\nehae\\Downloads\\Proc_programming\\dz3\\test.txt");
+
+    if (file.is_open()) {
+        cout << "File is closed" << endl;
+    }
+    else {
+        while (getline(file, str)) {
+            cout << str << endl;
+        }
+    }
 }
 
 int main()

@@ -8,26 +8,38 @@ using namespace std;
 
 void dz3_2()
 {
-    float S, n, m0, r, eps, m;
-    eps = 0.01;
+    double s, n, m0, ans = -1;
     cout << "Введите займ S: ";
-    cin >> S;
+    cin >> s;
     cout << "Введите ежемесячный платёж m: ";
     cin >> m0;
     cout << "Введите количество лет n: ";
     cin >> n;
-    int i;
-    for (i = 1; i <= 100; i++) {
-        r = i / 100.0;
-        if ((12 * (pow(1 + r, n) - 1)) == 0) {
-            cout << "Ошибка";
+    bool flag = true;
+    double left = 0, right = 100, midlle;
+    while (flag) {
+        midlle = (left + right) / 2;
+        double r = midlle / 100;
+        double m = (s * r * pow(r + 1, n)) / (12 * (pow(1 + r, n) - 1));
+        double diff = abs(m - m0);
+
+        if (diff < 0.001) {
+            ans = midlle;
+            flag = false;
+
+        }
+        else if (m < m0) {
+            left = midlle + 1;
         }
         else {
-            m = S * r * pow(1 + r, n) / (12 * (pow(1 + r, n) - 1));
+            right = midlle - 1;
         }
-        if (fabs(m - m0) < eps) {
-            cout << "p = " << i;
-        }
+    }
+    if (flag != -1) {
+        cout << "p = " << ans;
+    }
+    else {
+        cout << "sus";
     }
 }
 
