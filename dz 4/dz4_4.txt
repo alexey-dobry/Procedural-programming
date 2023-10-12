@@ -9,12 +9,12 @@ void dz_4()
 {
     int i, j, k,p;
     int counter = 0;
-    for (i = 0; i <= 8; i++) {
-        if (counter < 4) {
-            for (j = 0; j <= 12; j++) {
+    for (i = 0; i < 13; i++) {
+        if (counter < 6) {
+            for (j = 0; j <= 8; j++) {
                 cout << "*";
             }
-            for (k = 0; k <= 24; k++) {
+            for (k = 0; k <= 28; k++) {
                 cout << "_";
             }
             counter += 1;
