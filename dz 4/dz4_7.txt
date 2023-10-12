@@ -1,0 +1,37 @@
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+#include <fstream>
+#include <string>
+#include <algorithm>
+
+void dz_7()
+{
+    int x0,b,x;
+    cout << "Введите x0: ";
+    cin >> x0;
+    int i = 0;
+    cout << "Какой вариант использовать? ";
+    cin >> b;
+    switch (b)
+    {
+    case 1:
+        x = (37 * x0 + 0) % 64;
+        for (i = 0; i <= 3; i++) {
+            x = (37 * x + i) % 64;
+        }
+        cout << x;
+    case 2:
+        x = (37 * x0 + 0) % 64;
+        for (i = 0; i <= 13849; i++) {
+            x = (25173 * x + i) % 65537;
+        }
+        cout << x;
+    }
+}
+
+int main()
+{
+    dz_7();
+    return 0;
+}
