@@ -1,36 +1,64 @@
+#define _USE_MATH_DEFINES
+
 #include <iostream>
 #include <Windows.h>
 #include <math.h>
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <map>
+
+using namespace std;
+
+bool isdgt(string s)
+{
+    bool flag = true;
+    for (int i = 0; i < s.size(); i++) {
+        if (!(isdigit(s[i]) || s[i] == ',')) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
 
 void dz_1()
 {
     ofstream file("41.txt");
-    int i;
     float answer = 0;
-    string str,s;
-    float numb;
-    for (i = 0; i < 10; i++) {
+    string str,s, numb;
+    bool flag = true;
+    for (int i = 0; i < 10; i++) {
         cin >> numb;
-        s = s + to_string(numb);
-        s += "\n";
-    }
-    file << s;
-    file.close();
-
-    ifstream File;
-    File.open("41.txt");
-    if (!File.is_open()) {
-        cout << "File is closed";
-    }
-    else {
-        while (getline(File, str)) {
-            answer += stoi(str);
+        if (isdgt(numb)) {
+            s += (numb + "\n");
+        }
+        else {
+            cout << "Вы ввели не число" << endl;
+            flag = false;
+            break;
         }
     }
-    cout << answer;
+    if (flag) {
+        file << s;
+        file.close();
+
+        ifstream File;
+        File.open("41.txt");
+        if (!File.is_open()) {
+            cout << "File is closed";
+        }
+        else {
+            while (getline(File, str)) {
+                answer += stof(str);
+            }
+        }
+        cout << "-----------------" << endl << answer;
+    }
+    else {
+        cout << "Ошибка";
+    }
+    
 }
 
 int main()

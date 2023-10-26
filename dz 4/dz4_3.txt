@@ -1,11 +1,13 @@
-#include <iostream>
 #define _USE_MATH_DEFINES
 
+#include <iostream>
 #include <Windows.h>
 #include <math.h>
 #include <fstream>
 #include <string>
 #include <algorithm>
+
+using namespace std;
 
 float circle(float radius)
 {
@@ -43,7 +45,12 @@ void dz_3()
         cin >> a;
         cin >> b;
         cin >> c;
-        cout << "Площадь равна: " << triangle(a, b, c);
+        if ((a + b > c) && (a + c > b) && (b + c > a)) {
+            cout << "Площадь равна: " << triangle(a, b, c);
+        }
+        else {
+            cout << "Треугольника с такими сторонами не существует";
+        }
     case 3:
         float a1, b1;
         cout << "Введите стороны a,b" << endl;
@@ -51,7 +58,7 @@ void dz_3()
         cin >> b1;
         cout << "Площадь равна: " << rectangle(a1, b1);
     }
-}
+}  
 
 int main()
 {

@@ -1,9 +1,15 @@
+#define _USE_MATH_DEFINES
+
 #include <iostream>
 #include <Windows.h>
 #include <math.h>
 #include <fstream>
 #include <string>
 #include <algorithm>
+
+using namespace std;
+
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 void dz_4()
 {
@@ -12,9 +18,16 @@ void dz_4()
     for (i = 0; i < 13; i++) {
         if (counter < 6) {
             for (j = 0; j <= 8; j++) {
+                SetConsoleTextAttribute(hConsole, 0x1F);
                 cout << "*";
             }
             for (k = 0; k <= 28; k++) {
+                if (i % 2 == 0) {
+                    SetConsoleTextAttribute(hConsole, 0xCC);
+                }
+                else {
+                    SetConsoleTextAttribute(hConsole, 0xFF);
+                }
                 cout << "_";
             }
             counter += 1;
@@ -22,12 +35,19 @@ void dz_4()
         else
         {
             for (p = 0; p <= 37; p++) {
+                if (i % 2 == 0) {
+                    SetConsoleTextAttribute(hConsole, 0xCC);
+                }
+                else {
+                    SetConsoleTextAttribute(hConsole, 0xFF);
+                }
                 cout << "_";
             }
         }
         cout << endl;
     }
-}
+    SetConsoleTextAttribute(hConsole, 15);
+} 
 
 int main()
 {

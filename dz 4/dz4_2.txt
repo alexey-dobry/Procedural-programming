@@ -1,9 +1,14 @@
+#define _USE_MATH_DEFINES
+
 #include <iostream>
 #include <Windows.h>
 #include <math.h>
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <map>
+
+using namespace std;
 
 int signx(float numb)
 {
