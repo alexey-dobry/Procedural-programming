@@ -1,0 +1,43 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+#include <fstream>
+#include <string>
+#include <algorithm>
+#include <map>
+
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+using namespace std;
+
+void dz_7()
+{
+    int b,x,i,amount;
+    cout << "Введите количество членов последовательности: ";
+    cin >> amount;
+    cout << "Какой вариант использовать? ";
+    cin >> b;
+    switch (b)
+    {
+    case 1:
+        x = (37 * 3 + 0) % 64;
+        for (i = 0; i < amount; i++) {
+            x = (37 * x + i) % 64;
+            cout << x << endl;
+        }
+    case 2:
+        x = (25173 * 13849 + 0) % 65537;
+        for (i = 0; i < amount; i++) {
+            x = (25173 * x + i) % 65537;
+            cout << x << endl;
+        }
+    }
+}
+
+int main()
+{
+    dz_7();
+    return 0;
+}

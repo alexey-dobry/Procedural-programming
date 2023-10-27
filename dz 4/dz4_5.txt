@@ -1,0 +1,59 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+#include <fstream>
+#include <string>
+#include <algorithm>
+#include <map>
+
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+using namespace std;
+
+void dz_5()
+{
+    int f_s = 10;
+    for (float x = -f_s; x <= f_s; x += 0.1) {
+        x = roundf(x * 10) / 10;
+        for (float y = -f_s; y <= f_s; y += 0.01) {
+            float sn = -roundf(sin(y) * 100) / 100;
+            y = roundf(y * 100) / 100;
+            if (x == sn) {
+                SetConsoleTextAttribute(hConsole, 0xFF);
+                cout << "*";
+                SetConsoleTextAttribute(hConsole, 15);
+            }
+            else {
+                if (y == 0 && x == 0) {
+                    SetConsoleTextAttribute(hConsole, 0xFF);
+                    cout << "+";
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                else if (x == 0) {
+                    SetConsoleTextAttribute(hConsole, 0xFF);
+                    cout << "_";
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                else if (y == 0) {
+                    SetConsoleTextAttribute(hConsole, 0xFF);
+                    cout << "|";
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                else {
+                    cout << " ";
+                }
+                if (y == f_s) {
+                    cout << endl;
+                }
+            }
+        }
+    }
+}
+
+int main()
+{
+    dz_5();
+    return 0;
+}

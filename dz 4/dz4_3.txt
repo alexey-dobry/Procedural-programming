@@ -1,0 +1,67 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+#include <fstream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+float circle(float radius)
+{
+    return M_PI * (radius * radius);
+}
+
+float triangle(float a, float b, float c)
+{
+    float p;
+    p = (a + b + c) / 2;
+    return sqrt(p * (p - a) * (p - b) * (p - c));
+}
+
+float rectangle(float a, float b)
+{
+    return a * b;
+}
+
+void dz_3()
+{
+    int figure;
+    cout << "1. Circle" << endl << "2. Triangle" << endl << "3. Rectangle" << endl << "Площадь какой фигуры хотите посчитать? ";
+    cin >> figure;
+
+    switch (figure)
+    {
+    case 1:
+        float radius;
+        cout << "Введите радиус: ";
+        cin >> radius;
+        cout << "Площадь равна: " << circle(radius);
+    case 2:
+        float a, b, c;
+        cout << "Введите a, b и c" << endl;
+        cin >> a;
+        cin >> b;
+        cin >> c;
+        if ((a + b > c) && (a + c > b) && (b + c > a)) {
+            cout << "Площадь равна: " << triangle(a, b, c);
+        }
+        else {
+            cout << "Треугольника с такими сторонами не существует";
+        }
+    case 3:
+        float a1, b1;
+        cout << "Введите стороны a,b" << endl;
+        cin >> a1;
+        cin >> b1;
+        cout << "Площадь равна: " << rectangle(a1, b1);
+    }
+}  
+
+int main()
+{
+    dz_3();
+    return 0;
+}

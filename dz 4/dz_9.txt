@@ -1,0 +1,70 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <Windows.h>
+#include <math.h>
+#include <fstream>
+#include <string>
+#include <algorithm>
+#include <map>
+
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+using namespace std;
+
+void dz_9()
+{
+    char ms[6] { 'A','B','C','D','E','F' };
+    map<char, int> m;
+
+    m['A'] = 10;
+    m['B'] = 11;
+    m['C'] = 12;
+    m['D'] = 13;
+    m['E'] = 14;
+    m['F'] = 15;
+
+    string numb,base_val;
+    int base,base_numb,dec_val = 0;
+    bool flag = true;
+    cout << "Введите число: ";
+    cin >> numb;
+    cout << "Введите систему счисления изначального числа: ";
+    cin >> base_numb;
+    cout << "Введите основание системы в которую хотите перевести: ";
+    cin >> base;
+    int i;
+    i = numb.size();
+    while (i > 0) {
+        if (numb[numb.size() - i] < base_numb || (m[numb[numb.size() - i]] < base_numb && isdigit(numb[numb.size() - i]))) {
+            if (isdigit(numb[numb.size() - i])) {
+                dec_val += stoi(string(1, numb[numb.size() - i])) * pow(base_numb, i - 1);
+            }
+            else {
+                dec_val += m[numb[numb.size() - i]] * pow(base_numb, i - 1);
+            }
+        }
+        else {
+            flag = false;
+            break;
+        }
+        i -= 1;
+    }
+    if (!flag) {
+        cout << "В рамках данной программы невозможно перевести данное число в десятичную систему счисления";
+    }
+    else {
+        while (dec_val > 0) {
+            base_val += to_string(dec_val % base);
+            dec_val = dec_val / base;
+        }
+        reverse(base_val.begin(), base_val.end());
+        cout << "Число " << numb << " в " << base << " системе счисления:" << base_val;
+    }
+}
+
+int main()
+{
+    dz_8();
+    return 0;
+}
